@@ -37,7 +37,7 @@ jobs:
       uses: snok/install-poetry@v1.3.4
 
   lint:
-  need: build
+    need: build
 
     runs-on: ubuntu-latest
     defaults:
@@ -54,7 +54,7 @@ jobs:
 
     
   unitest:
-  need: lint
+    need: lint
 
     runs-on: ubuntu-latest
     defaults:
