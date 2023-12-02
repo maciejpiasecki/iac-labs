@@ -36,7 +36,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /example-app/.venv
+        path: /home/runner/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-venv
 
     
@@ -53,7 +53,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /example-app/.venv
+        path: /home/runner/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-venv
     - name: Lint with flake8
       run: poetry run task lint
@@ -71,7 +71,7 @@ jobs:
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /example-app/.venv
+        path: /home/runner/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-venv
     - name: Test with pytest
       run: |
