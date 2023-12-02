@@ -116,7 +116,8 @@ jobs:
       run: poetry run task lint
 
   unitest:
-    needs: lint
+    if: ${{ always() }}
+    needs: [lint, security,formatter]
 
     runs-on: ubuntu-latest
     defaults:
