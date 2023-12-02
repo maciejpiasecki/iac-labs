@@ -10,3 +10,6 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.10.3"
+  - name: Install Poetry Action
+    uses: snok/install-poetry@v1.3.4
+            
