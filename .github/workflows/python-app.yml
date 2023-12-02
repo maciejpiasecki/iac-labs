@@ -46,11 +46,14 @@ jobs:
     
   lint:
     needs: build
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{matrix.os}}
     defaults:
       run:
         working-directory: ./example-app   
+        shell: bash
 
     steps:
     - uses: actions/checkout@v3
@@ -71,11 +74,14 @@ jobs:
       
   formatter:
     needs: build
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{matrix.os}}
     defaults:
       run:
         working-directory: ./example-app   
+        shell: bash
 
     steps:
     - uses: actions/checkout@v3
@@ -96,11 +102,14 @@ jobs:
       
   security:
     needs: build
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{matrix.os}}
     defaults:
       run:
         working-directory: ./example-app   
+        shell: bash
 
     steps:
     - uses: actions/checkout@v3
@@ -122,11 +131,14 @@ jobs:
   unitest:
     if: ${{ always() }}
     needs: [lint, security,formatter]
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{matrix.os}}
     defaults:
       run:
-        working-directory: ./example-app
+        working-directory: ./example-app   
+        shell: bash
 
     steps:
     - uses: actions/checkout@v3
