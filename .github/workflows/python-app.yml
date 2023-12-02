@@ -88,5 +88,5 @@ jobs:
         path: /home/runner/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-venv
     - name: Test with pytest
-      run: |
-        pytest
+      run: poetry run task test
+
